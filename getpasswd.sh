@@ -1,24 +1,27 @@
 #! /bin/bash
 # This script if only for Mac OS
 # intended to make pulling up a saved wifi password quick
-networks=""
+
+# If No arguments are provided, print preferred networks saved by Wifi Network Interfaces.
 if [[ -z $1 ]];
 then
   echo "usage: getpasswd.sh <Network Interface>"
   echo "use one of the following Preferred networks"
   echo "-------------------------------------------"
-  wireless_networks=""
-  for network in $(ipconfig getiflist);
+  wireless_Interfaces=""
+  for interface in $(ipconfig getiflist);
   do
-    if [[ $(ipconfig getsummary $network | grep InterfaceType | cut -b 19-) = "WiFi" ]];
+    # checks if devices is a WiFi Interface.
+    if [[ $(ipconfig getsummary $interface | grep InterfaceType | cut -b 19-) = "WiFi" ]];
     then
-      wireless_networks="$wireless_networks $network"
+      # Appends to list of Wifi Interfaces.
+      wireless_Interfaces="$wireless_Interfaces $network"
     fi;
   done
 
-  for network in $wireless_networks;
+  for interface in $wireless_Interface;
   do
-    networksetup -listpreferredwirelessnetworks $network;
+    networksetup -listpreferredwirelessnetworks $interface;
   done
   exit 0
 fi
