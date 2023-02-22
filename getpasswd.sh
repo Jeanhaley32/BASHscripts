@@ -15,11 +15,11 @@ then
     if [[ $(ipconfig getsummary $interface | grep InterfaceType | cut -b 19-) = "WiFi" ]];
     then
       # Appends to list of Wifi Interfaces.
-      wireless_Interfaces="$wireless_Interfaces $network"
+      wireless_Interfaces="$wireless_Interfaces $interface"
     fi;
   done
 
-  for interface in $wireless_Interface;
+  for interface in $wireless_Interfaces;
   do
     networksetup -listpreferredwirelessnetworks $interface;
   done
