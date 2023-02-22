@@ -27,6 +27,8 @@ then
 fi
 
 pw=$(security find-generic-password -wa $1)
+
+# Print Wireless Network password, and copy to clipboard
 echo $pw
 echo $pw | pbcopy
 
