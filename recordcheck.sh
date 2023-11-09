@@ -2,7 +2,7 @@
 # Script created to check when a TXT record for a subdomain became available. 
 # Saving, because I may want to use some of this in a future script. 
 subdomain=<enter your target here>
-sleeptime=3
+sleeptime=3 # time between runs, in seconds. 
 start=$(date +%s)
 while true; do
   result=$(dig TXT $subdomain +short)
