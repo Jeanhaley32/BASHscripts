@@ -14,7 +14,6 @@ while true; do
     now=$(date +%s)
     duration=$((now - start))
     echo "Success! The TXT record exists. Total running time: $duration seconds."
-    break
   fi
   sleep $sleeptime
   clear
