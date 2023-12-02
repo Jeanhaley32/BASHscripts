@@ -1,10 +1,13 @@
 #!/bin/bash
+# This script logs the lid state to terminal, It will log date + whether the lid has been opened or closed. 
+# I was able to use this script to diagnose a macbook issue, and see that the lid angle sensor on my computer was not functioning 
+# as expected.
 
+isClosed(){
 # IsClosed uses the ioreg apple command to receive an update on the state of the clamshell
 # A 'Yes' indicates closure, and a 'No' should indicate the opposite.
 # We filter by 'AppleClamshellState' entries, grab the most recent entry at head, and show only the value
 # to the right of the '=' symbol. This should get us a clean yes or no response.
-isClosed(){
   echo $(ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | head -1 | cut -d '=' -f 2)
 }
 
