@@ -1,5 +1,5 @@
 #! /bin/bash
-# This script if only for Mac OS
+# This script is only for Mac OS
 # intended to make pulling up a saved wifi password quick
 
 # If No arguments are provided, print preferred networks saved by Wifi Network Interfaces.
