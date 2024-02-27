@@ -29,5 +29,6 @@ fi
 pw=$(security find-generic-password -wa "$1")
 echo $pw
 echo $pw | pbcopy
+echo "Password saved to clipboard"
 
 
